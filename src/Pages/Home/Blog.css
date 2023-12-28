@@ -1,0 +1,10 @@
+.posts img{
+    width: 100%;
+}
+
+.posts{
+    border-bottom: 2px solid gray;
+}
+.main{
+    margin-top: 90px;
+}

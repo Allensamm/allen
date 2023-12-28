@@ -1,0 +1,69 @@
+.container{
+    margin-top: 30%;
+}
+
+.center{
+    background: #00325580;
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.buttonToggle{
+    background: none;
+    color:black;
+    border:none;
+}
+.buttonToggle:hover{
+    background: none;
+    color: white;
+}
+
+.registeremail{
+    padding: 10px;
+    width: 300px;
+    outline: none;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+.registerusername{
+    padding: 10px;
+    width: 50%;
+    width: 300px;
+    outline: none;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+.registerpassword{
+    padding: 10px;
+    width: 50%;
+    width: 300px;
+    outline: none;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.registerbutton{
+    background: #003255;
+}
+
+.loginemail{
+    padding: 10px;
+    width: 50%;
+    width: 300px;
+    outline: none;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+.loginpassword{
+    padding: 10px;
+    width: 50%;
+    width: 300px;
+    outline: none;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.loginbutton{
+    background: #003255;
+}
