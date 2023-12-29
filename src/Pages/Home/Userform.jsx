@@ -15,17 +15,13 @@ function Userform() {
   const [password, setPassword] = useState('');
 
   useEffect(() => {
-    fetch(`${API_URL}/api/user`, { credentials: 'include' })
-      .then((res) => {
-        if (res.ok) {
-          setCurrentUser(true);
-        } else {
-          setCurrentUser(false);
-        }
-      })
-      .catch(() => setCurrentUser (null))
-
+    const accessToken = localStorage.getItem('access_token');
+  
+    if (accessToken) {
+      setCurrentUser(true);
+    }
   }, []);
+  
 
   function update_form_btn() {
     setRegistrationToggle((prevToggle) => !prevToggle);
@@ -60,7 +56,7 @@ function Userform() {
   async function submitLogin(e) {
     e.preventDefault();
     try {
-      const response = await fetch(`${API_URL}/api/login/`, {
+      const response = await fetch(`${API_URL}/api/token/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -71,33 +67,38 @@ function Userform() {
         }),
         credentials: 'include',
       });
-
+  
       if (response.ok) {
+        const responseData = await response.json();
+        const { access, refresh } = responseData;
+  
+        // Store the JWT tokens securely (e.g., in local storage)
+        localStorage.setItem('access_token', access);
+        localStorage.setItem('refresh_token', refresh);
+  
         setCurrentUser(true);
         window.location.href = '/blog';
       } else {
-        const contentTypes = response.headers.get('content-type');
-        if (contentTypes && contentTypes.includes('application/json')) {
-          const responseData = await response.json();
-          const errorMessage = responseData.detail || 'Login failed';
-
-          console.error('Login failed:', errorMessage);
-          alert(errorMessage);
-        }
+        // Handle login failure
       }
     } catch (error) {
       console.error('Error:', error);
     }
   }
+  
 
   async function submitLogout(e) {
     e.preventDefault();
     try {
+      // Clear the stored tokens
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+  
       const response = await fetch(`${API_URL}/api/logout/`, {
         method: 'POST',
         credentials: 'include',
       });
-
+  
       if (response.ok) {
         setCurrentUser(false);
       }
@@ -105,7 +106,10 @@ function Userform() {
       console.error('Error:', error);
     }
   }
-
+  if(currentUser){
+    window.location.href = '/blog'
+    return null
+}
   return (
     <div className="center">
       <div className="container">
