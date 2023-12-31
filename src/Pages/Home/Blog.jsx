@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
 import './Blog.css'
+import { Link, useParams } from "react-router-dom";
 
 function PostList() {
+  const { category } = useParams();
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/posts/");
+        const apiUrl = category
+          ? `http://127.0.0.1:8000/api/posts/${category}/`
+          : "http://127.0.0.1:8000/api/posts/";
+
+        const response = await fetch(apiUrl);
+
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -20,18 +27,31 @@ function PostList() {
     };
 
     fetchPosts();
-  }, []);
+  }, [category]);
 
   return (
     <div className="main">
       <h2>Blog Posts</h2>
       <ul>
         {posts.map((post) => (
-          <div className="posts">
-            <h3 key={post.id}>{post.title}</h3>
-            <p key={post.content}>{post.content}</p>
+          <div className="posts" key={post.id}>
+            <h1 className="posttitle">{post.projectname}</h1>
+            <p className="content">{post.Description}</p>
+
+            {post.anyfile && (
+              <div>
+                <video width="320" height="240" controls>
+                  <source src={post.anyfile} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            )}
+
+            <Link to={post.linktoproject}>
+              {post.linktoproject}
+            </Link>
             <div dangerouslySetInnerHTML={{ __html: post.largecontent }} />
-            <img src={post.image} alt=""/>
+            <img src={post.image} alt="" />
           </div>
         ))}
       </ul>
