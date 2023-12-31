@@ -16,7 +16,7 @@
       "id": "3",
       "src": "./img/java-script.png",
       "title": "JavaScript",
-      "description": "See projects in Javascript"
+      "description": ""
     },
     {
       "id": "4",
@@ -37,21 +37,21 @@
       "src": "./img/weather.png",
       "title": "Weather fetch",
       "description": "Did a project recently to upskill my react knowledge, it involves using weather API",
-      "link": "https://github.comm"
+      "link": "https://github.com/Allensamm/react-weather-app"
     },
     {
       "id": "2",
       "src": "./img/placeholder-image-1.png",
-      "title": "App Dashboard",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
-      "link": "View In Github"
+      "title": "Hackathon project",
+      "description": "Pacitipated in an Hackthon, the project was to follow a UI and create page accordingly,Technology used where HTML CSS JavaScript",
+      "link": "https://github.com/Allensamm/hackathon1"
     },
     {
       "id": "3",
       "src": "./img/placeholder-image-2.png",
-      "title": "Easy Rentn",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
-      "link": "View In Github"
+      "title": "this is an ongoing web project",
+      "description": "Nextjs was used in this project",
+      "link": "https://github.com/Allensamm/scholarshipweb"
     }
   ],
   "testimonial": [
