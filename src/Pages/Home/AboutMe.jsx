@@ -9,22 +9,22 @@ export default function AboutMe() {
 
   return (
     <section id="AboutMe" className={`about--section ${showCV ? 'cv-visible' : ''}`}>
-      <div className="about--section--img">
-        <img src="./img/Hero.svg" alt="About Me" />
-      </div>
       <div className="hero--section--content--box about--section--box">
         <div className="hero--section--content">
-          <h1 className="skills-section--heading">Who  is
-           <span style={{background:'black'}}> Allen</span>
+       <header className='aboutme--header'>
+       <p className='hello--intro'>HELLO</p>
+          <h1 className="skills-section--heading">I'm 
+          Allen Samuel
            </h1>
+       </header>
           <p className="hero--section-description">
-          Am software developer specializing in frontend development with knowledge in <span>Python </span> and <span> Django</span>, am proficient in building user interfaces and experiences for web applications. I use technologies such as <span>HTML</span>, <span>CSS</span>, and <span>JavaScript</span> to create visually appealing and interactive frontends. Additionally, my knowledge in Python and Django allows me to contribute to the backend development, enabling seamless communication between the frontend and backend components of a web application.
+          Am software developer specializing in frontend development with knowledge in <span>Python </span> and <span> Django</span>, am proficient in building user interfaces and experiences for web applications. I use technologies such as <span>HTML</span>, <span>CSS</span>, and <span>JavaScript</span> to create visually appealing and interactive frontends. Additionally, my knowledge in Python and Django allows me to contribute to the backend development.
           </p>
-          <p className="hero--section-description">
-           i am skilled in crafting responsive, user-friendly designs and collaborating with backend developers to deliver robust and efficient web solutions.
-          </p>
-          <button onClick={toggleCV}>See CV</button>
+          <button className='see--cv' onClick={toggleCV}>See CV</button>
         </div>
+        <video className='about-intro-video' width='700' height='300' controls>
+          <source src='./img/intro.mp4' />
+          your browser does not suppport the vedeo tag</video>
       </div>
       {showCV && (
         <div>
@@ -37,7 +37,7 @@ export default function AboutMe() {
           ></iframe>
          
         </div>
-         <button type='button' onClick={toggleCV}>Close CV</button>
+         <button className='close--cv' type='button' onClick={toggleCV}>Close CV</button>
         </div>
       )}
     </section>
