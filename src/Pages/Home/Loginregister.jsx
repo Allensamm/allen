@@ -1,15 +1,21 @@
-import React from 'react'
-import UserForm from './Userform'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { useAuth } from '../AuthContext';
 
-const Loginregister = () => {
+const LoginRegister = () => {
+  const { currentUser, login, logout } = useAuth();
+
   return (
     <div>
-        <Link to='/beauser'>
-         SingIn
-        </Link>
+      {currentUser ? (
+        <>
+        <button onClick={logout}>Logout</button>
+        </>
+      ) : (
+        // User is not logged in
+        <button onClick={login}>sign in</button>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Loginregister
+export default LoginRegister;
