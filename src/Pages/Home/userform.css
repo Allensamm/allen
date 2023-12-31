@@ -1,5 +1,6 @@
 .container{
-    margin-top: 30%;
+    margin-top: 10%;
+    padding-bottom: 20%;
 }
 
 .center{
@@ -8,6 +9,7 @@
     margin: auto;
     display: flex;
     justify-content: center;
+    margin-top: 10%;
 }
 .buttonToggle{
     background: none;

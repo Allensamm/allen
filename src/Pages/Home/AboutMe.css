@@ -1,10 +1,50 @@
 .about--section {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+  display: grid;
+  padding: 133.3px 85.3px;
+  /* align-items: center; */
+  /* gap: 114.6px; */
+  /* grid-template-columns: repeat(2, 1fr); */
+  justify-content: center;
+}
+.about--section--img > img {
+  width: 500px;
+  height: 500px;
+}
+
+.aboutme--header{
+  text-align: center;
+  align-items: center;
+  margin: auto;
+}
+
+
+
+.hero--section-description{
+  margin: auto;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  text-align: center;
+  max-width: 70ch;
+}
+
+.about-intro-video{
+  margin: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+  .cv-visible {
+   
+    
   }
 
-  .cv-visible {
-    transform: translateX(-8%);
+  .see--cv,.close--cv{
+    align-items: center;
+    display: block;
+    margin: auto;
+    padding: 10px 30px 10px 30px;
+    margin-bottom: 20px;
+    margin-top: 10px;
   }
   
   .cv-visible .hero--section--content--box{
@@ -24,10 +64,10 @@
   .cv--section {
     width: 100%;
     height: 500px;
-    overflow-y: scroll;
-    transform: translateX(120);
-    transition: transform 0.5s ease-in-out;
-    
+ align-items: center;
+    margin: auto;
+    display: block;
+ overflow-y: scroll; 
   }
 
 .cv--section::-webkit-scrollbar{

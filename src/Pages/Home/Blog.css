@@ -4,7 +4,16 @@
 
 .posts{
     border-bottom: 2px solid gray;
+    width: 800px;
+    margin: auto;
 }
 .main{
     margin-top: 90px;
+}
+.posttitle{
+    margin-bottom: 30px;
+}
+
+.content{
+    font-size: 30px;
 }
