@@ -1,9 +1,6 @@
 .about--section {
   display: grid;
-  padding: 133.3px 85.3px;
-  /* align-items: center; */
-  /* gap: 114.6px; */
-  /* grid-template-columns: repeat(2, 1fr); */
+  /* padding: 133.3px 85.3px; */
   justify-content: center;
 }
 .about--section--img > img {
@@ -16,6 +13,7 @@
   align-items: center;
   margin: auto;
 }
+
 
 
 
@@ -75,4 +73,7 @@
 }
 .cv--section iframe{
     border: none;
+}
+
+@media screen and (max-width:768px) {
 }
