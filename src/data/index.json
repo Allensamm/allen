@@ -1,36 +1,4 @@
 {
-  "skills": [
-    {
-      "id": "1",
-      "src": "./img/html.png",
-      "title": "HTML",
-      "description": "see what i have done in html"
-    },
-    {
-      "id": "2",
-      "src": "./img/social.png",
-      "title": "CSS",
-      "description": "see what i have done in with CSS"
-    },
-    {
-      "id": "3",
-      "src": "./img/java-script.png",
-      "title": "JavaScript",
-      "description": ""
-    },
-    {
-      "id": "4",
-      "src": "./img/db.png",
-      "title": "PostgreSQL",
-      "description": "Check out what i know in SQL"
-    },
-    {
-      "id": "4",
-      "src": "./img/python.png",
-      "title": "Python",
-      "description": "Check out what i know in python"
-    }
-  ],
   "portfolio": [
     {
       "id": "1",
@@ -49,35 +17,10 @@
     {
       "id": "3",
       "src": "./img/placeholder-image-2.png",
-      "title": "this is an ongoing web project",
-      "description": "Nextjs was used in this project",
+      "title": "Backend for this portfolio",
+      "description": "Python[Django] was used here, updates everyday",
       "link": "https://github.com/Allensamm/scholarshipweb"
     }
-  ],
-  "testimonial": [
-    {
-      "id": "1",
-      "count": "5",
-      "src": "./img/avatar-image.png",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
-      "author_name": "Dianne Russel",
-      "author_designation": "Starbucks"
-    },
-    {
-      "id": "2",
-      "count": "5",
-      "src": "./img/avatar-image-1.png",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
-      "author_name": "Kristin Watson",
-      "author_designation": "Louis Vuitton"
-    },
-    {
-      "id": "3",
-      "count": "5",
-      "src": "./img/avatar-image-2.png",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
-      "author_name": "Kathryn Murphy",
-      "author_designation": "McDonald's"
-    }
   ]
+  
 }
