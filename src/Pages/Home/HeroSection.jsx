@@ -8,7 +8,7 @@ export default function HeroSection() {
         <span className="span"> Software</span>
           </h1>
         </div>
-        <button className="btn btn-primary">Get In Touch</button>
+        <button className="bg-[#efdca7] p-3">Get In Touch</button>
       </div>
       <div className="hero--section--img">
         <img src="./img/imageee.png" alt="Hero Section" />

@@ -2,3 +2,12 @@
     transform: rotate(180°)
     /* transform:scale(2) */
 }
+
+
+@media screen and (max-width:768px){
+    .htmlcss{
+        display: grid;
+        gap: 10rem;
+        margin: auto;
+}
+}
