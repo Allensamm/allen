@@ -1,14 +1,15 @@
 import data from "../../data/index.json";
 import { Link } from "react-router-dom";
+import './myskills.css'
 export default function MyPortfolio() {
   return (
-    <section className="portfolio--section" id="MyPortfolio">
+    <section className="portfolio--section mt-14" id="MyPortfolio">
       <div className="portfolio--container-box">
         <div className="portfolio--container">
           <h1 className="section--heading">Recent Projects</h1>
         </div>
         <div>
-          <button className="btn btn-github">
+          <Link to={"https://github.com/allensamm"} className="btn btn-github">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="32"
@@ -24,7 +25,7 @@ export default function MyPortfolio() {
               />
             </svg>
             Visit My GitHub
-          </button>
+          </Link>
         </div>
       </div>
       <div className="portfolio--section--container">
@@ -33,11 +34,9 @@ export default function MyPortfolio() {
             <div className="portfolio--section--img">
               <img className="portfolioimg" src={item.src} alt="Placeholder" />
               <div className="githublink">
-              <Link
-              className="githublogo"
-              to={item.link}>
-               <img src="./img/github-logo.png" alt="" srcset="" />
-              </Link>
+                <Link className="githublogo" to={item.link}>
+                  <img src="./img/github-logo.png" alt="" srcset="" />
+                </Link>
               </div>
             </div>
             <div className="portfolio--section--card--content">
@@ -45,12 +44,8 @@ export default function MyPortfolio() {
                 <h3 className="portfolio--section--title">{item.title}</h3>
                 <p className="text-md">{item.description}</p>
               </div>
-              <Link className="text-sm portfolio--link"
-              to="https://github.com"
-              >
-              <button>
-                see github
-              </button>
+              <Link className="text-sm portfolio--link" to="https://github.com">
+                <button>see github</button>
               </Link>
             </div>
           </div>

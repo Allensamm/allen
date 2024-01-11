@@ -1,4 +1,5 @@
 import { Link } from "react-scroll";
+import { Link as Towhere } from "react-router-dom";
 import React from "react";
 
 const getCurrentYear = () =>{
@@ -85,44 +86,11 @@ function Footer() {
         <div className="footer--social--icon">
           <ul>
             <li>
-              <Link
-                activeClass="navbar--active-content"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                to="Privacy_Policy"
-                className="text-sm"
-              >
-                Privacy Policy
-              </Link>
-            </li>
-            <li>
-              <Link
-                activeClass="navbar--active-content"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                to="Terms_of_Service"
-                className="text-sm"
-              >
-                Terms of Service
-              </Link>
-            </li>
-            <li>
-              <Link
-                activeClass="navbar--active-content"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                to={"https://twitter.com/R3al_sam"}
-                className="text-sm"
+              <Towhere
+              to={'https://twitter.com/R3al_sam'}
               >
                 Twitter
-              </Link>
-              
+              </Towhere>
             </li>
           </ul>
         </div>

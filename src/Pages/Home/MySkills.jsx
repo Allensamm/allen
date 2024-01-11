@@ -1,40 +1,79 @@
-import data from "../../data/index.json";
-import { Link } from "react-router-dom";
+  import { Link } from "react-router-dom";
 import "./myskills.css";
 export default function MySkills() {
   return (
-    <section className="skills--section" id="mySkills">
-      <div className="portfolio--container">
-        <h2 className="skills--section--heading">What i know</h2>
+    <>
+      <section id="mySkills"></section>
+      <div className="md:flex space-x-5 justify-center grid md:gap-0 gap-[10rem] mt-20">
+        <div className="flex space-x-5">
 
-        <div class=" bg-red-800 h-3 w-4 flex justify-center -translate-y-[1px]">
-          <p className=" text-red-600">
-            this is color red
-          </p>
-          <div class="w-3/4">
-            <div class="h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent  w-full"></div>
-          </div>
-        </div>
-
-      </div>
-      <div className="skills--section--container">
-        {data?.skills?.map((item, index) => (
-          <div key={index} className="skills--section--card">
-            <div className="skills--section--img">
-              <img src={item.src} alt="Product Chain" />
-            </div>
-            <div className="skills--section--card--content">
-              <h3 className="skills--section--title">{item.title}</h3>
+          <div className="h-[1px] bg-gradient-to-r from-transparent via-[#f7664a] to-transparent w-48">
+            <div className="skills">
+              <div className="flex skills--section--img">
+                <h3 className="skills--section--title">HTML</h3>
+                <img src="./img/html.png" alt="" />
+              </div>
               <Link
-                to={`/blog/${item.title.toLowerCase()}`}
-                className="skills--section--description"
+                className="skills--section--description  text-sm text-white"
+                to={"/blog/html"}
               >
-                {`See what I have done in ${item.title}`}
+                Projects in HTML
               </Link>
             </div>
           </div>
-        ))}
+
+          <div className="h-[1px] bg-gradient-to-r from-transparent via-[#1572b6] to-transparent w-48">
+            <div className="skills">
+              <div className="flex skills--section--img">
+                <h3 className="skills--section--title">CSS</h3>
+                <img src="./img/social.png" alt="" />
+              </div>
+              <Link
+                className="skills--section--description text-sm text-white"
+                to={"/blog/css"}
+              >
+                Projects in CSS
+              </Link>
+            </div>
+          </div>
+
+        </div>
+
+        <div className="flex space-x-5"> 
+
+          <div className="h-[1px] bg-gradient-to-r from-transparent via-[#ffc107] to-transparent w-48">
+            <div className="skills">
+              <div className="flex skills--section--img">
+                <h3 className="skills--section--title">JavaScript</h3>
+                <img src="./img/java-script.png" alt="" />
+              </div>
+              <Link
+                className="skills--section--description text-sm text-white"
+                to={"/blog/javascript"}
+              >
+                Projects in JavaScript
+              </Link>
+            </div>
+          </div>
+
+          <div className="h-[1px] bg-gradient-to-r from-transparent via-[#78e0ea] to-transparent w-48">
+            <div className="skills">
+              <div className="flex skills--section--img">
+                <h3 className="skills--section--title">Python</h3>
+                <img src="./img/python.png" alt="" />
+              </div>
+              <Link
+                className="skills--section--description text-sm  text-white"
+                to={"/blog/python"}
+              >
+                Projects in Python
+              </Link>
+            </div>
+          </div>
+
+        </div>
+
       </div>
-    </section>
+    </>
   );
 }
