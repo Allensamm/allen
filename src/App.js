@@ -1,4 +1,6 @@
 import "./App.css";
+import "./index.css";
+
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -13,7 +15,6 @@ import UserForm from "./Pages/Home/Userform";
 import { AuthProvider } from "./Pages/AuthContext";
 import { useAuth } from "./Pages/AuthContext";
 
-
 const PrivateRoute = ({ element }) => {
   const { currentUser } = useAuth();
 
@@ -26,8 +27,6 @@ const PrivateRoute = ({ element }) => {
   return element;
 };
 
-
-
 const API_URL = "http://127.0.0.1:8000";
 function App() {
   return (
@@ -39,8 +38,14 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />}></Route>
 
-              <Route path="/blog" element={<PrivateRoute element={<PostList />} />} />
-              <Route path="/blog/:category" element={<PrivateRoute element={<PostList />} />} />
+              <Route
+                path="/blog"
+                element={<PrivateRoute element={<PostList />} />}
+              />
+              <Route
+                path="/blog/:category"
+                element={<PrivateRoute element={<PostList />} />}
+              />
 
               <Route path="/home" element={<Home />}></Route>
               <Route path="/beauser" element={<UserForm />}></Route>
@@ -51,6 +56,7 @@ function App() {
       </div>
     </AuthProvider>
   );
-}2
+}
+2;
 
 export default App;
