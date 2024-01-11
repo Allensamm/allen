@@ -2,21 +2,12 @@ import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { Link as RouterLink, useLocation,  } from "react-router-dom";
 import Loginregister from "./Loginregister";
-import Userform from "./Userform";
+
 
 
 const API_URL = 'http://127.0.0.1:8000';
 
 function Navbar() {
-
-  const [currentUser, setCurrentUser] = useState(false);
-
-  const handleLogout = () => {
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('refresh_token');
-    setCurrentUser(false);
-  };
-
   const location = useLocation();
   const [navActive, setNavActive] = useState(false);
 
@@ -49,16 +40,16 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className={`navbar ${navActive ? "active" : ""}`}>
-      <div>
-        <img src="./img/logo.svg" alt="Logo" />
+    <nav className={`navbar ${navActive ? "active" : ""}` }>
+      <div className="logo--mobile">
+        <img className="" src="./img/logo.svg" alt="Logo" />
       </div>
-      <a
-        className={`nav__hamburger ${navActive ? "active" : ""}`}
+      <div
+        className={`nav__hamburger ${navActive ? "active" : ""} mt-[-14px]`}
         onClick={toggleNav}
       >
         <img src="./img/menu.2dcedcd45ab4f1b28a88798e130072ea.svg" alt="" />
-      </a>
+      </div>
       <div className={`navbar--items ${navActive ? "active" : ""}`}>
         <ul>
           <li>
@@ -132,19 +123,7 @@ function Navbar() {
           </li>
         </ul>
       </div>
-      <Link
-        onClick={closeMenu}
-        activeClass="navbar--active-content"
-        spy={true}
-        smooth={true}
-        offset={-70}
-        duration={500}
-        to="Contact"
-      >
-        Contact Me
-      </Link>
     </nav>
   );
 }
-
 export default Navbar;
