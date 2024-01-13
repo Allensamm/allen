@@ -76,4 +76,8 @@
 }
 
 @media screen and (max-width:768px) {
+
+  .cv--section{
+    padding-left: 20%;
+  }
 }
