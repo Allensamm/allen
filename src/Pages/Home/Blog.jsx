@@ -10,8 +10,8 @@ function PostList() {
     const fetchPosts = async () => {
       try {
         const apiUrl = category
-          ? `http://127.0.0.1:8000/api/posts/${category}/`
-          : "http://127.0.0.1:8000/api/posts/";
+          ? `https://portfoliobackend-9og0.onrender.com/api/posts/${category}/`
+          : "https://portfoliobackend-9og0.onrender.com/api/posts/";
 
         const response = await fetch(apiUrl);
 
@@ -33,7 +33,7 @@ function PostList() {
     <div className="main m-8">
       {posts.map((post) => (
         <div className="posts" key={post.id}>
-          <div style={{border:'1px solid #78e0ea'}} className=" mb-10 p-10 rounded-md">
+          <div style={{border:'1px solid gray'}} className=" mb-10 p-10 rounded-md">
             <h1 className="posttitle font-semibold text-5xl text-[#78e0ea]">
               {post.projectname}
             </h1>
@@ -56,7 +56,7 @@ function PostList() {
             </div>
 
             <Link className="bg-[#ffc107] link p-4 rounded-sm" to={post.linktoproject}>view in github</Link>
-            <div dangerouslySetInnerHTML={{ __html: post.largecontent }} />
+            <div className="text-white mt-10" dangerouslySetInnerHTML={{ __html: post.largecontent }} />
             <img src={post.image} alt="" />
           </div>
         </div>
