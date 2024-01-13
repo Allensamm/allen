@@ -27,7 +27,8 @@ const PrivateRoute = ({ element }) => {
   return element;
 };
 
-const API_URL = "http://127.0.0.1:8000";
+// const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://portfoliobackend-9og0.onrender.com";
 function App() {
   return (
     <AuthProvider apiURL={API_URL}>
