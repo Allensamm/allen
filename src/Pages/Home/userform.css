@@ -1,29 +1,24 @@
 .container{
-    margin-top: 10%;
-    padding-bottom: 20%;
+    margin-top: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .center{
-    background: #00325580;
-    width: 50%;
     margin: auto;
-    display: flex;
-    justify-content: center;
-    margin-top: 10%;
 }
 .buttonToggle{
-    background: none;
+    background: #efdca7;
     color:black;
     border:none;
+    padding: 5px 25px;
 }
-.buttonToggle:hover{
-    background: none;
-    color: white;
-}
+
 
 .registeremail{
     padding: 10px;
-    width: 300px;
+    /* width: 300px; */
     outline: none;
     margin-bottom: 20px;
     border-radius: 6px;
@@ -46,9 +41,12 @@
 }
 
 .registerbutton{
-    background: #003255;
+    background: #efdca7;
+    color:black;
+    border:none;
+    padding: 5px 25px;
+    width: 100px;
 }
-
 .loginemail{
     padding: 10px;
     width: 50%;
@@ -67,5 +65,9 @@
 }
 
 .loginbutton{
-    background: #003255;
+    background: #efdca7;
+    color:black;
+    border:none;
+    padding: 5px 25px;
+    width: 100px;
 }
