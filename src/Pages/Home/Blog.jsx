@@ -10,8 +10,8 @@ function PostList() {
     const fetchPosts = async () => {
       try {
         const apiUrl = category
-          // ? `https://portfoliobackend-9og0.onrender.com/api/posts/${category}/`
-          // : "https://portfoliobackend-9og0.onrender.com/api/posts/";
+           ? `https://portfoliobackend-9og0.onrender.com/api/posts/${category}/`
+           : "https://portfoliobackend-9og0.onrender.com/api/posts/";
 
         const response = await fetch(apiUrl);
 
