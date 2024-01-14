@@ -1,19 +1,17 @@
 // UserForm.jsx
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import { useAuth } from '../AuthContext';
-import './userform.css';
+import React, { useState } from "react";
 
+import { useAuth } from "../AuthContext";
+import "./userform.css";
 
-const API_URL = 'https://portfoliobackend-9og0.onrender.com';
+// const API_URL = 'https://portfoliobackend-9og0.onrender.com';
 
 function UserForm() {
   const { currentUser, login, logout } = useAuth();
   const [registrationToggle, setRegistrationToggle] = useState(false);
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const updateFormBtn = () => {
     setRegistrationToggle((prevToggle) => !prevToggle);
@@ -23,25 +21,25 @@ function UserForm() {
     e.preventDefault();
     try {
       const registerResponse = await fetch(`${API_URL}/api/register/`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email,
           username,
           password,
         }),
-        credentials: 'include',
+        credentials: "include",
       });
 
       if (registerResponse.ok) {
-        console.log('Registration successful');
+        console.log("Registration successful");
       } else {
-        console.error('Registration failed');
+        console.error("Registration failed");
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
@@ -49,110 +47,108 @@ function UserForm() {
     e.preventDefault();
     try {
       const response = await fetch(`${API_URL}/api/login/`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email,
           password,
         }),
-        credentials: 'include',
+        credentials: "include",
       });
 
       if (response.ok) {
         login();
-        window.location.href = '/blog';
+        window.location.href = "/blog";
       } else {
-        const contentTypes = response.headers.get('content-type');
-        if (contentTypes && contentTypes.includes('application/json')) {
+        const contentTypes = response.headers.get("content-type");
+        if (contentTypes && contentTypes.includes("application/json")) {
           const responseData = await response.json();
-          const errorMessage = responseData.detail || 'Login failed';
+          const errorMessage = responseData.detail || "Login failed";
 
-          console.error('Login failed:', errorMessage);
+          console.error("Login failed:", errorMessage);
           alert(errorMessage);
         }
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
-  
-
   if (currentUser) {
-    window.location.href = '/blog'
+    window.location.href = "/blog";
   }
 
   return (
     <div className="center">
       <div className="container">
         <div>
-          <div className="toggleHeading">
+          <div className="toggleHeading mb-5">
             <div className="link">
-              <Button className="buttonToggle" onClick={updateFormBtn}>
-                {registrationToggle ? 'Register' : 'Login'}
-              </Button>
+             <span className="text-white pr-5">Click button for options</span>
+              <button className="buttonToggle" onClick={updateFormBtn}>
+                {registrationToggle ? "Register" : "Login"}
+              </button>
             </div>
           </div>
           {registrationToggle ? (
-            <Form onSubmit={submitRegistration}>
-              <Form.Group className="form-input email" controlId="formBasicEmail">
-                <Form.Control
-                  className="registeremail"
-                  type="email"
-                  placeholder="Enter email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </Form.Group>
-              <Form.Group className="form-input" controlId="formBasicUsername">
-                <Form.Control
-                  className="registerusername"
-                  type="text"
-                  placeholder="Enter username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </Form.Group>
-              <Form.Group className="form-input" controlId="formBasicPassword">
-                <Form.Control
-                  required
-                  className="registerpassword"
-                  type="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </Form.Group>
-              <Button className="registerbutton" variant="primary" type="submit">
+            <div className=" flex flex-col" onSubmit={submitRegistration}>
+              <input
+                className="registeremail"
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+
+              <input
+                className="registerusername"
+                type="text"
+                placeholder="Enter username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+
+              <input
+                required
+                className="registerpassword"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+
+              <button
+                className="registerbutton"
+                variant="primary"
+                type="submit"
+              >
                 Submit
-              </Button>
-            </Form>
+              </button>
+            </div>
           ) : (
-            <Form onSubmit={submitLogin}>
-              <Form.Group className="form-input email" controlId="formBasicEmail">
-                <Form.Control
-                  className="loginemail"
-                  type="email"
-                  placeholder="Enter email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </Form.Group>
-              <Form.Group className="form-input" controlId="formBasicPassword">
-                <Form.Control
-                  className="loginpassword"
-                  type="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </Form.Group>
-              <Button className="loginbutton" variant="primary" type="submit">
+            <div className="flex flex-col" onSubmit={submitLogin}>
+              <input
+                className="loginemail"
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+
+              <input
+                className="loginpassword"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+
+              <button className="loginbutton" variant="primary" type="submit">
                 Submit
-              </Button>
-            </Form>
+              </button>
+            </div>
           )}
         </div>
       </div>
