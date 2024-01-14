@@ -160,12 +160,14 @@ h2 {
   cursor: pointer;
 }
 
+
 @media screen and (max-width:768px) {
   .logo--mobile{
-    margin-left: -35% !important;  
+  margin-left: -60px !important;   
 }
-  }
+}
   
+
 
 /* Navbar Styler Ends */
 
@@ -237,6 +239,16 @@ h2 {
   }
 }
 
+
+@media screen and (max-width:768px){
+  .about--section--box{
+    padding: 10px;
+  }
+  .hero--section{
+    padding: 20px;
+    margin-top:20%;
+  }
+}
 /* Hero Section Style Ends */
 
 /* Skills Section Style */
@@ -301,7 +313,7 @@ width:100%;
 .portfolio--section--container {
   display: flex;
   z-index: 1;
-  align-items: center;
+  /* align-items: center;  */
   justify-content: center;
   gap: 42.6px;
   width: 100%;
@@ -339,7 +351,6 @@ width:100%;
 }
 .portfolio--section--card--content {
   display: flex;
-  /* padding: 32px; */
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
