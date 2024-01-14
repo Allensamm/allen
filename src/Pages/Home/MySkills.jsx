@@ -4,8 +4,8 @@ export default function MySkills() {
   return (
     <>
       <section id="mySkills"></section>
-      <div className="md:flex space-x-5 justify-center grid md:gap-0 gap-[10rem] mt-20">
-        <div className="flex htmlcss  space-x-5">
+      <div className="md:flex sm:space-x-5 space-x-0  justify-center grid md:gap-0 gap-[10rem] mt-20">
+        <div className="flex htmlcss sm:space-x-5 space-x-0">
 
           <div className="h-[1px] bg-gradient-to-r from-transparent via-[#f7664a] to-transparent w-48">
             <div className="skills">
@@ -39,7 +39,7 @@ export default function MySkills() {
 
         </div>
 
-        <div className="flex space-x-5 htmlcss"> 
+        <div className="flex  htmlcss sm:space-x-5 space-x-0"> 
 
           <div className="h-[1px] bg-gradient-to-r from-transparent via-[#ffc107] to-transparent w-48">
             <div className="skills">
