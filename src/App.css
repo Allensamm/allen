@@ -353,12 +353,25 @@ width:100%;
   .portfolio--section--card{
     margin: 0px;
   }  
+  .portfolio--link{
+    margin-bottom: 30px;
+  }
+  .portfolio--container-box{
+    margin-bottom: 40px;
+  }
   
 }
 
 @media screen and (max-width:420px) {
       .portfolio--section--container{
        margin: -75px;
+       
+  }
+  .portfolio--link{
+    margin-bottom: 30px;
+  }
+  .portfolio--container-box{
+    margin-bottom: 40px;
   }
 }
 .githublink {
