@@ -8,11 +8,11 @@ const LoginRegister = () => {
     <div>
       {currentUser ? (
         <>
-        <button onClick={logout}>Logout</button>
+        <button className='bg-[#1d96ec] px-10 py-3 rounded-full' onClick={logout}>Logout</button>
         </>
       ) : (
         // User is not logged in
-        <button onClick={login}>sign in</button>
+        <button className='bg-[#1d96ec] px-10 py-3 rounded-full' onClick={login}>sign in</button>
       )}
     </div>
   );

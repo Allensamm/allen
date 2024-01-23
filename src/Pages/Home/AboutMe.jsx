@@ -15,7 +15,7 @@ export default function AboutMe() {
       <div className="hero--section--content--box about--section--box">
         <div className="hero--section--content">
           <header className="aboutme--header">
-            <p className="hello--intro">HELLO</p>
+            <p className="hello--intro text-[#1d96ec]">HELLO</p>
             <h1 className="skills-section--heading">I'm Allen Samuel</h1>
           </header>
           <p className="hero--section-description">
@@ -28,7 +28,7 @@ export default function AboutMe() {
             Python and Django allows me to contribute to backend
             development.
           </p>
-          <button className="see--cv bg-[#efdca7]" onClick={toggleCV}>
+          <button className="see--cv bg-[#1d96ec]  px-10 py-3 rounded-full" onClick={toggleCV}>
             See CV
           </button>
         </div>
@@ -48,7 +48,7 @@ export default function AboutMe() {
             ></iframe>
           </div>
           <button
-            className="close--cv bg-[#efdca7]"
+            className="close--cv bg-[#1d96ec]  px-10 py-3 rounded-full"
             type="button"
             onClick={toggleCV}
           >

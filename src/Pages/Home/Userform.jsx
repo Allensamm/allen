@@ -16,7 +16,7 @@ function UserForm() {
   const updateFormBtn = () => {
     setRegistrationToggle((prevToggle) => !prevToggle);
   };
-
+3
   const submitRegistration = async (e) => {
     e.preventDefault();
     try {

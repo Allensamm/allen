@@ -5,7 +5,7 @@ export default function ContactMe() {
       <div className="calltoaction">
         <h1>Let's build a brand.</h1>
         <button>
-          <Link className="link" to={"https://allensamuel569@gmail.com"}>
+          <Link className="link px-10 py-3 rounded-full" to={"https://allensamuel569@gmail.com"}>
             say Hello
           </Link>
         </button>

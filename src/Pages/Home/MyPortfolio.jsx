@@ -9,7 +9,7 @@ export default function MyPortfolio() {
           <h1 className="section--heading">Recent Projects</h1>
         </div>
         <div>
-          <Link to={"https://github.com/allensamm"} className="bg-[#efdca7] p-4">
+          <Link to={"https://github.com/allensamm"} className="bg-[#1d96ec]  px-10 py-3 rounded-full">
            
              My GitHub
           </Link>
@@ -26,14 +26,11 @@ export default function MyPortfolio() {
                 </Link>
               </div>
             </div>
-            <div className="portfolio--section--card--content">
+            <div className="portfolio--section--card--content gap-[32px] items-start flex-col max-w-[300px] flex mt-8">
               <div>
-                <h3 className="portfolio--section--title">{item.title}</h3>
-                <p className="text-md">{item.description}</p>
+                <h3 className="portfolio--section--title text-[#efdca7] font-bold">{item.title}</h3>
+                <p className="text-md text-white">{item.description}</p>
               </div>
-              <Link className="text-sm portfolio--link bg-[#efdca7] p-3" to="https://github.com">
-                see Github
-              </Link>
             </div>
           </div>
         ))}

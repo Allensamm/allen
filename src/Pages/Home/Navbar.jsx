@@ -52,7 +52,7 @@ function Navbar() {
         <img src="./img/menu.2dcedcd45ab4f1b28a88798e130072ea.svg" alt="" />
       </div>
       <div className={`navbar--items ${navActive ? "active" : ""}`}>
-        <ul>
+        <ul className="">
           <li>
             <RouterLink
               onClick={closeMenu}
@@ -62,7 +62,7 @@ function Navbar() {
               offset={-70}
               duration={500}
               to="/home"
-              className="navbar--content"
+              className="navbar--content text-white"
             >
               Home
             </RouterLink>
@@ -78,7 +78,8 @@ function Navbar() {
                 offset={-70}
                 duration={500}
                 to="AboutMe"
-                className="navbar--content"
+                className="navbar--content text-white"
+                
               >
                 About me
               </Link>
@@ -95,13 +96,13 @@ function Navbar() {
                 offset={-70}
                 duration={500}
                 to="MyPortfolio"
-                className="navbar--content"
+                className="navbar--content text-white"
               >
                 Portfolio
               </Link>
             </li>
           )}
-          <li>
+          <li className="">
             <Loginregister />
           </li>
         </ul>
