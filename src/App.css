@@ -453,11 +453,8 @@ width:100%;
 	padding: 50px;
 	justify-content: center;
 	align-items: center;
-	/* width: 100vw; */
-	background: linear-gradient(91.64deg, #ffce85 0.84%, #67a9e7 96.54%);
-	box-shadow: 0px 4px 154px #6eaae1, inset 56px -5px 150px #ffffff,
-		inset 50px 4px 104px #ffce85;
-
+	border-top: 1px solid #1d96ec;
+	border-bottom: 1px solid #1d96ec;
 	text-align: center;
 	column-gap: 20px;
 }

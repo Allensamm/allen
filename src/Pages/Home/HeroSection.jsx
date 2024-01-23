@@ -38,7 +38,7 @@ export default function HeroSection() {
         </Link>
       </div>
       <div className="hero--section--img ml-[40%] top-[-30px] relative">
-      <img  src="./img/git.png" alt="" className='' />
+      <img  src="./img/git.png" alt="" className=' pointer-events-none' />
 
       <img onClick={() => handlethisclicked('img5')} src="./img/javascript.png" alt="" className={` ${imgclick.includes('img5') ? 'img5' : ''}`} />
 
