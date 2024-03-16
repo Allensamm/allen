@@ -1,13 +1,11 @@
 // UserForm.jsx
 import React, { useState } from "react";
-
-import { useAuth } from "../AuthContext";
-import "./userform.css";
-
-const API_URL = 'https://portfoliobackend-9og0.onrender.com';
+import { account, ID } from "../../appwrite";
+import {useNavigate } from "react-router-dom";
 
 function UserForm() {
-  const { currentUser, login, logout } = useAuth();
+  const navigate = useNavigate();
+  const [loggedInUser, setLoggedInUser] = useState(null);
   const [registrationToggle, setRegistrationToggle] = useState(false);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -16,86 +14,34 @@ function UserForm() {
   const updateFormBtn = () => {
     setRegistrationToggle((prevToggle) => !prevToggle);
   };
-3
-  const submitRegistration = async (e) => {
-    e.preventDefault();
-    try {
-      const registerResponse = await fetch(`${API_URL}/api/register/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          username,
-          password,
-        }),
-        credentials: "include",
-      });
 
-      if (registerResponse.ok) {
-        console.log("Registration successful");
-      } else {
-        console.error("Registration failed");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
+  async function login(email, password) {
+    await account.createEmailSession(email, password)
+    setLoggedInUser(await account.get());
+    navigate('/home');
+  }
+  
 
-  const submitLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch(`${API_URL}/api/login/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-        credentials: "include",
-      });
-
-      if (response.ok) {
-        login();
-        window.location.href = "/blog";
-      } else {
-        const contentTypes = response.headers.get("content-type");
-        if (contentTypes && contentTypes.includes("application/json")) {
-          const responseData = await response.json();
-          const errorMessage = responseData.detail || "Login failed";
-
-          console.error("Login failed:", errorMessage);
-          alert(errorMessage);
-        }
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
-  if (currentUser) {
-    window.location.href = "/blog";
+  if(loggedInUser){
+    console.log(loggedInUser);
   }
 
   return (
     <div className="center">
-      <div className="container">
+      <div className=" mt-[15%] m-auto w-fit">
         <div>
           <div className="toggleHeading mb-5">
             <div className="link">
              <span className="text-white pr-5">Click button for options</span>
-              <button className="buttonToggle" onClick={updateFormBtn}>
+              <button className="buttonToggle bg-[#0096df] pl-8 pr-8 pt-2 pb-2" onClick={updateFormBtn}>
                 {registrationToggle ? "Register" : "Login"}
               </button>
             </div>
           </div>
           {registrationToggle ? (
-            <div className=" flex flex-col" onSubmit={submitRegistration}>
+            <div className=" flex flex-col space-y-5" >
               <input
-                className="registeremail"
+                className="registeremail pt-2 pb-2 rounded-lg outline pl-4 pr-4"
                 type="email"
                 placeholder="Enter email"
                 value={email}
@@ -103,7 +49,7 @@ function UserForm() {
               />
 
               <input
-                className="registerusername"
+                className="registerusername pt-2 pb-2 rounded-lg outline pl-4 pr-4"
                 type="text"
                 placeholder="Enter username"
                 value={username}
@@ -112,7 +58,7 @@ function UserForm() {
 
               <input
                 required
-                className="registerpassword"
+                className="registerpassword pt-2 pb-2 rounded-lg outline pl-4 pr-4"
                 type="password"
                 placeholder="Password"
                 value={password}
@@ -120,17 +66,22 @@ function UserForm() {
               />
 
               <button
-                className="registerbutton"
+                className="registerbutton bg-[#0096df] pl-8 pr-8 pt-2 pb-2"
                 variant="primary"
-                type="submit"
+                type="button"
+                onClick={async () => {
+                await account.create(ID.unique(), email, password, username );
+                login(email, password);
+          }}
+
               >
                 Submit
               </button>
             </div>
           ) : (
-            <div className="flex flex-col" onSubmit={submitLogin}>
+            <div className="flex flex-col space-y-5" >
               <input
-                className="loginemail"
+                className="loginemail pt-2 pb-2 rounded-lg outline pl-4 pr-4"
                 type="email"
                 placeholder="Enter email"
                 value={email}
@@ -138,15 +89,16 @@ function UserForm() {
               />
 
               <input
-                className="loginpassword"
+                className="loginpassword pt-2 pb-2 rounded-lg outline pl-4 pr-4"
                 type="password"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
 
-              <button className="loginbutton" variant="primary" type="submit">
+              <button  className="loginbutton bg-[#0096df] pl-8 pr-8 pt-2 pb-2" variant="primary" type="button" onClick={() => login(email, password)}>
                 Submit
+                
               </button>
             </div>
           )}

@@ -15,7 +15,7 @@ export default function MySkills() {
               </div>
               <Link
                 className="skills--section--description  text-sm text-white"
-                to={"/blog/html"}
+                
               >
                 Projects in HTML
               </Link>
@@ -30,7 +30,7 @@ export default function MySkills() {
               </div>
               <Link
                 className="skills--section--description text-sm text-white"
-                to={"/blog/css"}
+               
               >
                 Projects in CSS
               </Link>

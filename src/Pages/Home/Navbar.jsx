@@ -1,14 +1,30 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { Link as RouterLink, useLocation,  } from "react-router-dom";
-import Loginregister from "./Loginregister";
+import { account } from "../../appwrite";
+import { useNavigate } from "react-router-dom";
 
 
-
-// const API_URL = 'http://127.0.0.1:8000';
- const API_URL = 'https://portfoliobackend-9og0.onrender.com';
 
 function Navbar() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    checkLoginStatus();
+  }, []);
+
+  async function checkLoginStatus() {
+    try {
+      // Check if there is a logged-in user
+      const user = await account.get();
+      setIsLoggedIn(user);   
+      console.log(user);
+    } catch (error) {
+      console.error('Error checking login status:', error);
+    }
+  }
+
+
+
   const location = useLocation();
   const [navActive, setNavActive] = useState(false);
 
@@ -40,6 +56,9 @@ function Navbar() {
     }
   }, []);
 
+ 
+const navigate = useNavigate()
+
   return (
     <nav className={`navbar ${navActive ? "active" : ""}` }>
       <div className="logo--mobile">
@@ -53,17 +72,8 @@ function Navbar() {
       </div>
       <div className={`navbar--items ${navActive ? "active" : ""}`}>
         <ul className="">
-          <li>
-            <RouterLink
-              onClick={closeMenu}
-              activeClass="navbar--active-content"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              to="/home"
-              className="navbar--content text-white"
-            >
+        <li className=" text-white">
+            <RouterLink to='/home' >
               Home
             </RouterLink>
           </li>
@@ -102,9 +112,24 @@ function Navbar() {
               </Link>
             </li>
           )}
-          <li className="">
-            <Loginregister />
-          </li>
+          {isLoggedIn ? ( 
+          <button
+          className="text-white"
+          type="button"
+          onClick={async () => {
+            await account.deleteSession('current');
+            setIsLoggedIn(false)
+            navigate('/404')
+          }}
+        >
+          Logout
+        </button>
+          ):(<li className=" text-white">
+            <RouterLink to='/Signin' >
+              Signin
+            </RouterLink>
+          </li>)
+          }
         </ul>
       </div>
     </nav>
