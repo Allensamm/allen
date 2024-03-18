@@ -1,4 +1,4 @@
-  import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./myskills.css";
 export default function MySkills() {
   return (
@@ -15,7 +15,7 @@ export default function MySkills() {
               </div>
               <Link
                 className="skills--section--description  text-sm text-white"
-                
+                to={"/projects/html"}
               >
                 Projects in HTML
               </Link>
@@ -30,7 +30,7 @@ export default function MySkills() {
               </div>
               <Link
                 className="skills--section--description text-sm text-white"
-               
+               to={"/projects/css"}
               >
                 Projects in CSS
               </Link>
@@ -49,7 +49,7 @@ export default function MySkills() {
               </div>
               <Link
                 className="skills--section--description text-sm text-white"
-                to={"/blog/javascript"}
+                to={"/projects/javascript"}
               >
                 Projects in JavaScript
               </Link>
@@ -64,7 +64,7 @@ export default function MySkills() {
               </div>
               <Link
                 className="skills--section--description text-sm  text-white"
-                to={"/blog/python"}
+                to={"/projects/python"}
               >
                 Projects in Python
               </Link>

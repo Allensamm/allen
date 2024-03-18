@@ -11,6 +11,7 @@ import {
 import Navbar from "./Pages/Home/Navbar";
 import Home from "./Pages/Home/Homescreen";
 import UserForm from "./Pages/Home/Userform";
+import Projects from './Pages/Home/Projects.jsx'
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
 
             <Route path="/" element={<Home/>} />
             <Route path="/Signin" element={<UserForm />}></Route>
+            <Route path="/projects" element={<Projects />}></Route>
           </Routes>
         </div>
       </Router>
